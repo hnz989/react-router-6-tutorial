@@ -8,10 +8,14 @@ function App() {
   return <BrowserRouter>
     <nav>Our Navbar</nav>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="prodcuts" element={<Products />} />
-      <Route path="*" element={<Error />} />
+      <Route path="/" element={<Home />}>
+        <Route path="about" element={<About />} />
+        <Route path="prodcuts" element={<Products />} />
+        <Route path="*" element={<Error />} />
+      </Route>
+      <Route path="dashboard" element={<div>Our Dashboard</div>}>
+        <Route path="stats" element={<div>Stats</div>} />
+      </Route>
     </Routes>
     <footer>Our Footer</footer>
   </BrowserRouter>;
