@@ -4,23 +4,25 @@ import About from './pages/About';
 import Products from './pages/Products'
 import Error from './pages/Error'
 import SharedLayout from "./pages/SharedLayout";
+import SingleProduct from "./pages/SingleProduct";
 
 function App() {
-  return <BrowserRouter>
-    <nav>Our Navbar</nav>
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="products" element={<Products />} />
-        <Route path="*" element={<Error />} />
-      </Route>
-      <Route path="dashboard" element={<div>Our Dashboard</div>}>
-        <Route path="stats" element={<div>Stats</div>} />
-      </Route>
-    </Routes>
-    <footer>Our Footer</footer>
-  </BrowserRouter>;
+    return <BrowserRouter>
+        <nav>Our Navbar</nav>
+        <Routes>
+            <Route path="/" element={<SharedLayout/>}>
+                <Route index element={<Home/>}/>
+                <Route path="about" element={<About/>}/>
+                <Route path="products" element={<Products/>}/>
+                <Route path="products/:productId" element={<SingleProduct />} />
+                <Route path="*" element={<Error/>}/>
+            </Route>
+            <Route path="dashboard" element={<div>Our Dashboard</div>}>
+                <Route path="stats" element={<div>Stats</div>}/>
+            </Route>
+        </Routes>
+        <footer>Our Footer</footer>
+    </BrowserRouter>;
 }
 
 export default App;
